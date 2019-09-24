@@ -19,12 +19,19 @@
 ;ex3
 (define (f3 score)
   (cond
-    ((>= score 80) #\A)
-    ((>= score 60) #\B)
-    ((>= score 40) #\C)
-    (else #\D)))
+    ((>= score 80) 'A)
+    ((>= score 60) 'B)
+    ((>= score 40) 'C)
+    (else 'D)))
 
 (f3 45)
 (f3 79)
 (f3 99)
 (f3 66)
+
+(eqv? 1.0 1)
+(eqv? 1 1)
+(eqv? '(1 2 3) '(1 2 3))
+(eqv? "str" "str")
+(equal? "str" "str")
+
