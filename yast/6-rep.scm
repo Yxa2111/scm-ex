@@ -62,9 +62,42 @@
 
 (str2int "1232111")
 
+(define (lst-reverse lst)
+  (lst-rev lst '()))
 
+;ex3
+(define (lst-rm-let e lst)
+  (let loop((l lst) (p '()))
+    (if (null? l)
+      (lst-reverse p)
+      (let ((h (car l)) (t (cdr l)))
+	(if (eqv? h e)
+	  (loop t p)
+	  (loop t (cons h p)))))))
 
+(lst-rm-let 1 '(2 3 4 1 2 ))
 
+(define (lst-find-let e lst)
+  (let loop((l lst))
+    (if (null? l)
+      #f
+	(if (eqv? (car l) e)
+	  0
+	  (let ((pos (loop (cdr l))))
+	    (and pos (+ 1 pos)))))))
 
+(lst-find-let 1 '(2 3 4 5 6 1 2))
 
+(define (range-let n)
+  (let loop((lst '()) (i (- n 1)))
+    (if (< i 0)
+      lst
+      (loop (cons i lst) (- i 1)))))
+
+(range-let 4)
+(range-let 0)
+(range-let -1)
+(range-let 100)
+
+;ex4
 
