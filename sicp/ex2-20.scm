@@ -1,0 +1,21 @@
+(define (rev-lst lst)
+  (define (iter lst rst)
+    (if (null? lst)
+	rst
+	(iter (cdr lst) (cons (car lst) rst))))
+  (iter lst (list)))
+(define (same-parity . lst)
+  (if (null? lst)
+      (list)
+      (let ((num (car lst)))
+    	(define (iter lst n-lst)
+    	  (if (null? lst)
+	      n-lst
+	      (if (= (modulo (- (car lst) num) 2) 0)
+		  (iter (cdr lst) (cons (car lst) n-lst))
+		  (iter (cdr lst) n-lst))))
+	(rev-lst (iter lst (list))))))
+
+(same-parity 1 2 3 4 5 6)
+(same-parity)
+(same-parity 2 3 4 5 6 7 8 )

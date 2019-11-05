@@ -1,0 +1,10 @@
+(define (last-pair lst)
+  (define (iter lst)
+    (cond ((null? lst) '())
+	  ((null? (cdr lst)) (car lst))
+	  (else (iter (cdr lst)))))
+  (iter lst))
+
+(last-pair (list 1 2 3 4 5 6))
+(last-pair (list 1))
+(last-pair (list))
