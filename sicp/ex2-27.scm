@@ -1,0 +1,11 @@
+(cd "/home/yxaa/scm-ex/sicp")
+(load "ex2-18.scm")
+(define (deep-reverse tree)
+  (cond ((not (pair? tree)) tree)
+	((null? (cdr tree)) (deep-reverse (car tree)))
+      	(else (list (deep-reverse (cdr tree))
+	      	    (deep-reverse (car tree))))))
+
+(define x (list (list 1 2) (list 3 4)))
+(reverse-lst x)
+(deep-reverse x)
