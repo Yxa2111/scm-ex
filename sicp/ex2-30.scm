@@ -1,0 +1,17 @@
+(define (square-tree tree)
+  (map (lambda (sub-tree)
+	 (if (pair? sub-tree)
+	     (square-tree sub-tree)
+	     (square sub-tree)))
+       tree))
+
+(define (square-tree-2 tree)
+  (cond ((pair? tree)
+	 (cons (square-tree-2 (car tree))
+	       (square-tree-2 (cdr tree))))
+	((null? tree) tree)
+	(else (square tree))))
+
+(define t (list 1 (list 2 (list 3 4) 5)))
+(square-tree t)
+(square-tree-2 t)
