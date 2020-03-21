@@ -1,9 +1,14 @@
+(define (abs n)
+  (if (< n 0)
+      (- n 0)
+      n))
+
 (define (new-if condition p1 p2)
         (cond (condition p1)
 	      (else p2)))
 
 (define (good-enough? guess x)
-  (< (abs (- (* guess guess) x)) 0.0000001))
+  (< (abs (- (* guess guess) x)) 0.01))
 
 (define (improve guess x)
   (/ (+ guess (/ x guess)) 2.0))

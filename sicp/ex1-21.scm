@@ -8,8 +8,9 @@
 
 (define (prime? n)
   (and (> n 1) (= (smallest-divisor n) n)))
+(prime? 1)
 (prime? 74)
 (prime? 51)
-(prime? 1)
+
 (prime? 1999)
 (smallest-divisor 51)

@@ -37,13 +37,13 @@
     (display " right: ")
     (display w2))
   (let ((lbr-w (branch-weight (left-branch m))) (rbr-w (branch-weight (right-branch m))))
-    ((if (= lbr-w rbr-w)
-	((newline)
-	 (display " euqal!"))
-	((newline)
-	 (display " not equal!")))
+    (if (= lbr-w rbr-w)
+      (begin (newline)
+            (display " euqal!"))
+      (begin (newline)
+            (display " not equal!")))
      (print lbr-w rbr-w)
-     #t)))
+     ))
 
 (define mobi
   (make-mobile

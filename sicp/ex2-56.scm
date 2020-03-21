@@ -1,9 +1,11 @@
+#lang planet neil/sicp
+
 (define (fast-expt base exponment)
   (let loop((a base) (b exponment) (res 1))
     (cond ((= b 0) res)
 	  ((= (modulo b 2) 0)
 	   (loop (* a a) (/ b 2) res))
-	  (else (loop (* a a) (/ (- b 1) 2) (* res a)))))))
+	  (else (loop (* a a) (/ (- b 1) 2) (* res a))))))
 
 (define (=number? x num)
   (and (number? x) (= x num)))
@@ -69,9 +71,9 @@
 	       (n (exponment expr)))
 	   (make-product
 	     (make-product n (make-expn u (- n 1)))
-	     (deriv u x))))
+	     (deriv u n))))
 	(else
-	  error "deriv: error expr!")))
+	  (error "deriv: error expr!"))))
 
 (deriv '(+ (* 4 (* x x)) (* 3 x) 5) 'x)
 (deriv '(* x (* x x)) 'x)

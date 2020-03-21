@@ -1,4 +1,4 @@
-#lang sicp
+#lang planet neil/sicp
 
 (define (entry tree) (car tree))
 
@@ -57,7 +57,7 @@
 
 (define s1 (make-set '(4 5 1 11 33 2 44 1 22 98 45 63 21 78 99)))
 s1
-(set->list s1)
+(define x (set->list s1))
 
 (define (list->set lst)
   (define (proc elts n)
@@ -75,7 +75,7 @@ s1
           (cons (make-tree this-entry left-tree right-tree) remaining-elts))))
   (car (proc lst (length lst))))
 
-(set->list (list->set s1))
+(set->list (list->set (set->list s1)))
 
 (define (union-set set1 set2)
   (define (merge lst1 lst2 res-lst)
